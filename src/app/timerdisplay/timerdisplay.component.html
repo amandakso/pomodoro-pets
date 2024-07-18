@@ -1,5 +1,5 @@
 <div>
-    <countdown #cd [config]="{leftTime: 30, demand: true}" />
+    <countdown #cd [config]="{leftTime: this.duration * 60, demand: true}" />
     <div>
         <button *ngIf="this.startStatus" (click)="cd.pause(); this.startStatus = false">Pause</button>
         <button *ngIf="!this.startStatus" (click)="cd.begin(); this.startStatus = !this.startStatus">Start</button>

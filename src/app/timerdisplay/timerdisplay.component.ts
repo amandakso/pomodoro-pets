@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   CountdownComponent,
   CountdownConfig,
@@ -14,4 +14,5 @@ import {
 })
 export class TimerdisplayComponent {
   startStatus = false;
+  @Input() duration!: number;
 }
