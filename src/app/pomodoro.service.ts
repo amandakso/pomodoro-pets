@@ -10,4 +10,14 @@ export class PomodoroService {
   long_timer = 15;
 
   constructor() {}
+  /** get timers */
+  get getPomodoro() {
+    return this.pomdoro_timer;
+  }
+  get getShort() {
+    return this.short_timer;
+  }
+  get getLong() {
+    return this.long_timer;
+  }
 }
