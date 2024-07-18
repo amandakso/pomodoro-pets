@@ -21,7 +21,7 @@ export class TimerdisplayComponent {
 
   pomodoroService = inject(PomodoroService);
 
-  handleEvent(e: CountdownEvent) {
+  handleTimeChange(e: CountdownEvent) {
     console.log('notify');
     console.log(e.left); // returns in milliseconds
     this.remainingTime.emit(e.left);
