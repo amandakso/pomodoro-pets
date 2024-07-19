@@ -16,6 +16,7 @@ export class PomodoroService {
   long_interval = 4;
 
   constructor() {}
+  // Getters
   /** get timer type */
   get getTimerType() {
     return this.timers;
@@ -29,5 +30,17 @@ export class PomodoroService {
   }
   get getLong() {
     return this.long_timer;
+  }
+
+  /**get counts */
+  get getPomodoroCount() {
+    return this.pomodoro_count;
+  }
+  get getBreakCount() {
+    return this.break_count;
+  }
+  /**get long interval */
+  get getLongInterval() {
+    return this.long_interval;
   }
 }

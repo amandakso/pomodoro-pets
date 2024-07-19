@@ -36,6 +36,24 @@ export class TimersComponent {
       console.log('time remaining: ', num);
     } else {
       console.log('done');
+      console.log(this.selectedIndex);
+      this.changeTimerTab(this.selectedIndex);
+      /** update count */
+    }
+  }
+
+  changeTimerTab(num: number) {
+    if (num == 0) {
+      /** depends on break count */
+      let break_count = this.pomodoroService.getBreakCount;
+      let long_interval = this.pomodoroService.getLongInterval;
+      if (break_count % long_interval == 0) {
+        this.selectedIndex = 2;
+      } else {
+        this.selectedIndex = 1;
+      }
+    } else {
+      this.selectedIndex = 0;
     }
   }
 }
