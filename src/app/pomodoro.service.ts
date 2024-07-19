@@ -43,4 +43,12 @@ export class PomodoroService {
   get getLongInterval() {
     return this.long_interval;
   }
+
+  // add to counts
+  addPomodoroCount() {
+    this.pomodoro_count += 1;
+  }
+  addBreakCount() {
+    this.break_count += 1;
+  }
 }

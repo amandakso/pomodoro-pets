@@ -29,7 +29,6 @@ export class TimersComponent {
 
   informTabChange(tabIndex: number) {
     this.setSelectedIndex(tabIndex);
-    console.log(tabIndex);
   }
   handleRemainingTime(num: number) {
     if (num != 0) {
@@ -38,13 +37,12 @@ export class TimersComponent {
       console.log('done');
       console.log(this.selectedIndex);
       this.changeTimerTab(this.selectedIndex);
-      /** update count */
     }
   }
 
   changeTimerTab(num: number) {
     if (num == 0) {
-      /** depends on break count */
+      // depends on break count
       let break_count = this.pomodoroService.getBreakCount;
       let long_interval = this.pomodoroService.getLongInterval;
       if (break_count % long_interval == 0) {
@@ -52,8 +50,12 @@ export class TimersComponent {
       } else {
         this.selectedIndex = 1;
       }
+      // update completed pomodoro count
+      this.pomodoroService.addPomodoroCount();
     } else {
       this.selectedIndex = 0;
+      // update completed pomodoro count
+      this.pomodoroService.addBreakCount();
     }
   }
 }
