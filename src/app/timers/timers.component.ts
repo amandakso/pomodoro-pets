@@ -22,6 +22,11 @@ export class TimersComponent {
   short = this.pomodoroService.getShort;
   long = this.pomodoroService.getLong;
 
+  /** current timer values  */
+  current_pomodoro = this.pomodoro;
+  current_short = this.short;
+  current_long = this.long;
+
   /** getters */
 
   /** setters */
@@ -31,6 +36,20 @@ export class TimersComponent {
 
   informTabChange(tabIndex: number) {
     this.setSelectedIndex(tabIndex);
+    //update tab title
+    switch (tabIndex) {
+      case 0: // pomodoro
+        this.updateTabTitle(`${this.current_pomodoro}:00`);
+        break;
+      case 1: // short
+        this.updateTabTitle(`${this.current_short}:00`);
+        break;
+      case 2: // long
+        this.updateTabTitle(`${this.current_long}:00`);
+        break;
+      default:
+        this.titleService.setTitle('Pomodoro Pets');
+    }
   }
   handleRemainingTime(num: number) {
     if (num != 0) {
@@ -60,6 +79,7 @@ export class TimersComponent {
       this.pomodoroService.addBreakCount();
     }
   }
+  // updates tab title timer
   updateTabTitle(timeRemaining: string) {
     this.titleService.setTitle(`${timeRemaining} | Pomodoro Pets`);
   }
