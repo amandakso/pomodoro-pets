@@ -1,6 +1,6 @@
 <div>
     <countdown #cd [config]="{
-        leftTime: this.duration,
+        leftTime: this.duration * 60,
         demand: true,
         format: this.duration > 59 ? 'HH:mm:ss' : 'mm:ss',
         notify: 0,

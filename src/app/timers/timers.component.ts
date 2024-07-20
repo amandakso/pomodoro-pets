@@ -56,6 +56,7 @@ export class TimersComponent {
   }
   handleRemainingTime(num: number) {
     if (num != 0) {
+      console.log(this.selectedIndex);
       console.log('time remaining: ', num);
     } else {
       console.log('done');
