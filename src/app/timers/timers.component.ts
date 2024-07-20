@@ -60,7 +60,10 @@ export class TimersComponent {
       this.pomodoroService.addBreakCount();
     }
   }
+  updateTabTitle(timeRemaining: string) {
+    this.titleService.setTitle(`${timeRemaining} | Pomodoro Pets`);
+  }
   ngOnInit() {
-    this.titleService.setTitle(`${this.pomodoro}:00 | Pomodoro Pets`);
+    this.updateTabTitle(`${this.pomodoro}:00`);
   }
 }
