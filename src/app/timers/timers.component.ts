@@ -22,10 +22,10 @@ export class TimersComponent {
   short = this.pomodoroService.getShort;
   long = this.pomodoroService.getLong;
 
-  /** current timer values  */
-  current_pomodoro = this.pomodoro;
-  current_short = this.short;
-  current_long = this.long;
+  /** current timer values (converted from minutes to milliseconds) */
+  current_pomodoro = this.pomodoroService.getCurrentPomodoro;
+  current_short = this.pomodoroService.getCurrentShort;
+  current_long = this.pomodoroService.getCurrentLong;
 
   /** getters */
 
@@ -37,15 +37,18 @@ export class TimersComponent {
   informTabChange(tabIndex: number) {
     this.setSelectedIndex(tabIndex);
     //update tab title
+    this.convertTimerDisplay(this.current_pomodoro);
+    this.convertTimerDisplay(this.current_short);
+    this.convertTimerDisplay(this.current_long);
     switch (tabIndex) {
       case 0: // pomodoro
-        this.updateTabTitle(`${this.current_pomodoro}:00`);
+        this.updateTabTitle(this.convertTimerDisplay(this.current_pomodoro));
         break;
       case 1: // short
-        this.updateTabTitle(`${this.current_short}:00`);
+        this.updateTabTitle(this.convertTimerDisplay(this.current_short));
         break;
       case 2: // long
-        this.updateTabTitle(`${this.current_long}:00`);
+        this.updateTabTitle(this.convertTimerDisplay(this.current_long));
         break;
       default:
         this.titleService.setTitle('Pomodoro Pets');
@@ -83,6 +86,18 @@ export class TimersComponent {
   updateTabTitle(timeRemaining: string) {
     this.titleService.setTitle(`${timeRemaining} | Pomodoro Pets`);
   }
+
+  // convert milliseconds to display in HH:mm:ss
+  convertTimerDisplay(num: number) {
+    if (num >= 3.6 * 10 ** 6) {
+      return new Date(num).toISOString().slice(11, 19);
+    } else {
+      return new Date(num).toISOString().slice(14, 19);
+    }
+
+    //TBD
+  }
+
   ngOnInit() {
     this.updateTabTitle(`${this.pomodoro}:00`);
   }
