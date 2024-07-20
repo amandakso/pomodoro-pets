@@ -37,6 +37,17 @@ export class PomodoroService {
     return this.long_timer;
   }
 
+  /** get current timer display in ms */
+  get getCurrentPomodoro() {
+    return this.current_pomodoro;
+  }
+  get getCurrentShort() {
+    return this.current_short;
+  }
+  get getCurrentLong() {
+    return this.current_long;
+  }
+
   /**get counts */
   get getPomodoroCount() {
     return this.pomodoro_count;
