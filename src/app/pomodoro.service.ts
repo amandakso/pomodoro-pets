@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class PomodoroService {
   timers: 'pomodoro' | 'short' | 'long' = 'pomodoro';
-  pomdoro_timer = 25;
+  pomodoro_timer = 25;
   short_timer = 5;
   long_timer = 15;
 
@@ -23,7 +23,7 @@ export class PomodoroService {
   }
   /** get timers */
   get getPomodoro() {
-    return this.pomdoro_timer;
+    return this.pomodoro_timer;
   }
   get getShort() {
     return this.short_timer;
