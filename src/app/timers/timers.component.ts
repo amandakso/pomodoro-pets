@@ -58,6 +58,23 @@ export class TimersComponent {
     if (num != 0) {
       console.log(this.selectedIndex);
       console.log('time remaining: ', num);
+      /** update timer title */
+      switch (this.selectedIndex) {
+        case 0:
+          this.pomodoroService.currentPomodoro = num;
+          this.updateTabTitle(this.convertTimerDisplay(num));
+          break;
+        case 1:
+          this.pomodoroService.currentShort = num;
+          this.updateTabTitle(this.convertTimerDisplay(num));
+          break;
+        case 2:
+          this.pomodoroService.currentLong = num;
+          this.updateTabTitle(this.convertTimerDisplay(num));
+          break;
+        default:
+          this.titleService.setTitle('Pomodoro Pets');
+      }
     } else {
       console.log('done');
       console.log(this.selectedIndex);
