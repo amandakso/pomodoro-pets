@@ -9,6 +9,11 @@ export class PomodoroService {
   short_timer = 5;
   long_timer = 15;
 
+  /** current timers converted to milliseconds */
+  current_pomodoro = this.pomodoro_timer * 6000;
+  current_short = this.short_timer * 6000;
+  current_long = this.long_timer * 6000;
+
   /** counts */
   pomodoro_count = 1;
   break_count = 1;
