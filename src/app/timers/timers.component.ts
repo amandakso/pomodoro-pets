@@ -2,6 +2,7 @@ import { Component, inject, Input } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TimerdisplayComponent } from '../timerdisplay/timerdisplay.component';
 import { PomodoroService } from '../pomodoro.service';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-timers',
   standalone: true,
@@ -10,6 +11,7 @@ import { PomodoroService } from '../pomodoro.service';
   styleUrl: './timers.component.css',
 })
 export class TimersComponent {
+  constructor(private titleService: Title) {}
   selectedIndex = 0; // pomodoro = 0; short = 1; long = 2
 
   pomodoroService = inject(PomodoroService);
@@ -57,5 +59,8 @@ export class TimersComponent {
       // update completed pomodoro count
       this.pomodoroService.addBreakCount();
     }
+  }
+  ngOnInit() {
+    this.titleService.setTitle(`${this.pomodoro}:00 | Pomodoro Pets`);
   }
 }
