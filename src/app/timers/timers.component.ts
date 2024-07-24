@@ -58,8 +58,12 @@ export class TimersComponent {
   handleRemainingTime(emitter: { num: number; name: string }) {
     if (emitter.num != 0) {
       console.log(this.selectedIndex);
-      console.log('time remaining: ', emitter.num);
-      console.log('timer name: ', emitter.name);
+      console.log(
+        'time remaining: ',
+        emitter.num,
+        'timer name: ',
+        emitter.name
+      );
       /** update timer title */
       switch (this.selectedIndex) {
         case 0:
@@ -100,12 +104,8 @@ export class TimersComponent {
       } else {
         this.selectedIndex = 1;
       }
-      // update completed pomodoro count
-      this.pomodoroService.addPomodoroCount();
     } else {
       this.selectedIndex = 0;
-      // update completed pomodoro count
-      this.pomodoroService.addBreakCount();
     }
   }
   // updates tab title timer

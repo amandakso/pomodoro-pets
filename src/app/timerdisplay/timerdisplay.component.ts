@@ -73,6 +73,13 @@ export class TimerdisplayComponent {
   onTimerFinished(e: CountdownEvent) {
     if (e.action == 'done') {
       console.log('timer finished');
+      console.log('timer name: ', this.name, 'timer index', this.timerIndex);
+      let convertedTimerName = this.convertNameToIndex(this.name);
+      if (convertedTimerName == 0) {
+        this.pomodoroService.addPomodoroCount();
+      } else {
+        this.pomodoroService.addBreakCount();
+      }
       setTimeout(() => this.countdown.restart());
       this.startStatus = false;
     }
