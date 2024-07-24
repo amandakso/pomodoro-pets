@@ -34,7 +34,7 @@ export class TimersComponent {
     this.selectedIndex = val;
   }
 
-  informTabChange(tabIndex: number) {
+  informIndexChange(tabIndex: number) {
     this.setSelectedIndex(tabIndex);
     //update tab title
     this.convertTimerDisplay(this.current_pomodoro);
@@ -54,23 +54,31 @@ export class TimersComponent {
         this.titleService.setTitle('Pomodoro Pets');
     }
   }
-  handleRemainingTime(num: number) {
-    if (num != 0) {
+
+  handleRemainingTime(emitter: { num: number; name: string }) {
+    if (emitter.num != 0) {
       console.log(this.selectedIndex);
-      console.log('time remaining: ', num);
+      console.log('time remaining: ', emitter.num);
+      console.log('timer name: ', emitter.name);
       /** update timer title */
       switch (this.selectedIndex) {
         case 0:
-          this.pomodoroService.currentPomodoro = num;
-          this.updateTabTitle(this.convertTimerDisplay(num));
+          this.pomodoroService.currentPomodoro = emitter.num;
+          if (emitter.name == 'pomodoro') {
+            this.updateTabTitle(this.convertTimerDisplay(emitter.num));
+          }
           break;
         case 1:
-          this.pomodoroService.currentShort = num;
-          this.updateTabTitle(this.convertTimerDisplay(num));
+          this.pomodoroService.currentShort = emitter.num;
+          if (emitter.name == 'short') {
+            this.updateTabTitle(this.convertTimerDisplay(emitter.num));
+          }
           break;
         case 2:
-          this.pomodoroService.currentLong = num;
-          this.updateTabTitle(this.convertTimerDisplay(num));
+          this.pomodoroService.currentLong = emitter.num;
+          if (emitter.name == 'long') {
+            this.updateTabTitle(this.convertTimerDisplay(emitter.num));
+          }
           break;
         default:
           this.titleService.setTitle('Pomodoro Pets');

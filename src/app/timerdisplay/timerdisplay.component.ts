@@ -30,7 +30,9 @@ export class TimerdisplayComponent {
     notify: 0,
   };
 
-  @Output() remainingTime = new EventEmitter<number>();
+  @Input() name!: string;
+
+  @Output() remainingTime = new EventEmitter<{ num: number; name: string }>();
 
   @ViewChild('cd', { static: false }) private countdown!: CountdownComponent;
 
@@ -48,13 +50,9 @@ export class TimerdisplayComponent {
   handleTimeChange(e: CountdownEvent) {
     console.log('notify');
     console.log(e.left); // returns in milliseconds
+    console.log(this.name);
 
-    this.remainingTime.emit(e.left);
-
-    // if (e.left == 0) {
-    //   setTimeout(() => this.countdown.restart());
-    //   this.startStatus = false;
-    // }
+    this.remainingTime.emit({ num: e.left, name: this.name });
   }
 
   onTimerFinished(e: CountdownEvent) {
