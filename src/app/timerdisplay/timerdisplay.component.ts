@@ -6,6 +6,7 @@ import {
   Input,
   Output,
   inject,
+  SimpleChanges,
 } from '@angular/core';
 import {
   CountdownComponent,
@@ -22,6 +23,9 @@ import { PomodoroService } from '../pomodoro.service';
 })
 export class TimerdisplayComponent {
   startStatus = false;
+
+  @ViewChild('cd', { static: false }) private countdown!: CountdownComponent;
+
   @Input() duration!: number;
   config = {
     leftTime: this.duration,
@@ -32,9 +36,21 @@ export class TimerdisplayComponent {
 
   @Input() name!: string;
 
-  @Output() remainingTime = new EventEmitter<{ num: number; name: string }>();
+  @Input() timerIndex!: number;
 
-  @ViewChild('cd', { static: false }) private countdown!: CountdownComponent;
+  ngOnChanges(changes: SimpleChanges) {
+    /**if name index doesn't match timer index restart timer */
+    if (
+      !(
+        changes['timerIndex'].currentValue == this.convertNameToIndex(this.name)
+      )
+    ) {
+      setTimeout(() => this.countdown.restart());
+      this.startStatus = false;
+    }
+  }
+
+  @Output() remainingTime = new EventEmitter<{ num: number; name: string }>();
 
   /** Timer Actions */
   start() {
@@ -50,9 +66,8 @@ export class TimerdisplayComponent {
   handleTimeChange(e: CountdownEvent) {
     console.log('notify');
     console.log(e.left); // returns in milliseconds
-    console.log(this.name);
 
-    this.remainingTime.emit({ num: e.left, name: this.name });
+    this.remainingTime.emit({ num: e.left, name: this.name }); // returns timer name and remaining time left
   }
 
   onTimerFinished(e: CountdownEvent) {
@@ -60,6 +75,18 @@ export class TimerdisplayComponent {
       console.log('timer finished');
       setTimeout(() => this.countdown.restart());
       this.startStatus = false;
+    }
+  }
+
+  convertNameToIndex(name: string) {
+    if (name == 'pomodoro') {
+      return 0;
+    } else if (name == 'short') {
+      return 1;
+    } else if (name == 'long') {
+      return 2;
+    } else {
+      return 3;
     }
   }
 }

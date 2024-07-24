@@ -1,9 +1,9 @@
 <mat-tab-group animationDuration="0ms" [selectedIndex]="selectedIndex"
         (selectedIndexChange)="informIndexChange($event)">
-        <mat-tab label="Pomodoro"><app-timerdisplay name="pomodoro" (remainingTime)="handleRemainingTime($event)"
-                        [duration]="this.pomodoro" /></mat-tab>
-        <mat-tab label="Short Break"><app-timerdisplay name="short" (remainingTime)="handleRemainingTime($event)"
-                        [duration]="this.short" /></mat-tab>
-        <mat-tab label="Long Break"><app-timerdisplay name="long" (remainingTime)="handleRemainingTime($event)"
-                        [duration]="this.long" /></mat-tab>
+        <mat-tab label="Pomodoro"><app-timerdisplay name="pomodoro" [timerIndex]="this.selectedIndex"
+                        (remainingTime)="handleRemainingTime($event)" [duration]="this.pomodoro" /></mat-tab>
+        <mat-tab label="Short Break"><app-timerdisplay name="short" [timerIndex]="this.selectedIndex"
+                        (remainingTime)="handleRemainingTime($event)" [duration]="this.short" /></mat-tab>
+        <mat-tab label="Long Break"><app-timerdisplay name="long" [timerIndex]="this.selectedIndex"
+                        (remainingTime)="handleRemainingTime($event)" [duration]="this.long" /></mat-tab>
 </mat-tab-group>
