@@ -20,6 +20,17 @@ export class PomodoroService {
 
   long_interval = 4;
 
+  /** pet  */
+  pet:
+    | 'dog'
+    | 'cat'
+    | 'rabbit'
+    | 'penguin'
+    | 'unicorn'
+    | 'tiger'
+    | 'monkey'
+    | 'groundhog' = 'dog';
+
   constructor() {}
   // Getters
   /** get timer type */
