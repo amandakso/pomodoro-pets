@@ -74,6 +74,10 @@ export class PomodoroService {
   get getLongInterval() {
     return this.long_interval;
   }
+  /** get pet */
+  get getPet() {
+    return this.pet;
+  }
 
   //Setters
   /** set current timer display in ms */
