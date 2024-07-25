@@ -1,0 +1,19 @@
+<div>
+    <countdown #cd [config]="{
+        leftTime: this.duration * 60,
+        demand: true,
+        format: this.duration > 59 ? 'HH:mm:ss' : 'mm:ss',
+        notify: 0,
+      }" (event)="handleTimeChange($event)" (event)="onTimerFinished($event)" />
+    <div>
+        <div *ngIf="name == 'pomodoro'; else elseBlock">#{{this.pomodoroService.getPomodoroCount}}</div>
+        <ng-template #elseBlock>#{{this.pomodoroService.getBreakCount}}</ng-template>
+        <button *ngIf=" this.startStatus" (click)="this.pause(); this.startStatus = false">Pause</button>
+        <button *ngIf="!this.startStatus" (click)="this.start(); this.startStatus = !this.startStatus">Start</button>
+        <!-- <button (click)="cd.begin()" class="btn btn-link btn-sm">start</button>
+        <button (click)="cd.pause()" class="btn btn-link btn-sm">pause</button>
+        <button (click)="cd.resume()" class="btn btn-link btn-sm">resume</button>
+        <button (click)="cd.stop()" class="btn btn-link btn-sm">stop</button>
+        <button (click)="cd.restart()" class="btn btn-link btn-sm">restart</button> -->
+    </div>
+</div>
