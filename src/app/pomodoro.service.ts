@@ -21,15 +21,19 @@ export class PomodoroService {
   long_interval = 4;
 
   /** pet  */
-  pet:
-    | 'dog'
-    | 'cat'
-    | 'rabbit'
-    | 'penguin'
-    | 'unicorn'
-    | 'tiger'
-    | 'monkey'
-    | 'groundhog' = 'dog';
+  pet: 'dog' | 'kitty' = 'dog';
+  // pet:
+  //   | 'dog'
+  //   | 'cat'
+  //   | 'rabbit'
+  //   | 'penguin'
+  //   | 'unicorn'
+  //   | 'tiger'
+  //   | 'monkey'
+  //   | 'groundhog' = 'dog';
+
+  /** pet image attributions */
+  // <a href="https://www.flaticon.com/free-icons/cat" title="cat icons">Cat icons created by Freepik - Flaticon</a>
 
   constructor() {}
   // Getters
