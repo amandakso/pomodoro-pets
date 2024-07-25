@@ -1,9 +1,12 @@
 <mat-tab-group animationDuration="0ms" [selectedIndex]="selectedIndex"
         (selectedIndexChange)="informIndexChange($event)">
         <mat-tab label="Pomodoro">
-                <app-pet-image petType="pomodoro" />
-                <app-timerdisplay name="pomodoro" [timerIndex]="this.selectedIndex"
-                        (remainingTime)="handleRemainingTime($event)" [duration]="this.pomodoro" /></mat-tab>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                        <app-pet-image petType="pomodoro" />
+                        <app-timerdisplay name="pomodoro" [timerIndex]="this.selectedIndex"
+                                (remainingTime)="handleRemainingTime($event)" [duration]="this.pomodoro" />
+                </div>
+        </mat-tab>
         <mat-tab label="Short Break"> <app-pet-image petType="short" /><app-timerdisplay name="short"
                         [timerIndex]="this.selectedIndex" (remainingTime)="handleRemainingTime($event)"
                         [duration]="this.short" /></mat-tab>

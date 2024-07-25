@@ -6,7 +6,7 @@
         notify: 0,
       }" (event)="handleTimeChange($event)" (event)="onTimerFinished($event)" />
     <div>
-        <div *ngIf="name == 'pomodoro'; else elseBlock">#{{this.pomodoroService.getPomodoroCount}}</div>
+        <span *ngIf="name == 'pomodoro'; else elseBlock">#{{this.pomodoroService.getPomodoroCount}}</span>
         <ng-template #elseBlock>#{{this.pomodoroService.getBreakCount}}</ng-template>
         <button *ngIf=" this.startStatus" (click)="this.pause(); this.startStatus = false">Pause</button>
         <button *ngIf="!this.startStatus" (click)="this.start(); this.startStatus = !this.startStatus">Start</button>
