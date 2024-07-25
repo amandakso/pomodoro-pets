@@ -3,10 +3,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { TimerdisplayComponent } from '../timerdisplay/timerdisplay.component';
 import { PomodoroService } from '../pomodoro.service';
 import { Title } from '@angular/platform-browser';
+import { PetImageComponent } from '../pet-image/pet-image.component';
 @Component({
   selector: 'app-timers',
   standalone: true,
-  imports: [MatTabsModule, TimerdisplayComponent],
+  imports: [MatTabsModule, TimerdisplayComponent, PetImageComponent],
   templateUrl: './timers.component.html',
   styleUrl: './timers.component.css',
 })
