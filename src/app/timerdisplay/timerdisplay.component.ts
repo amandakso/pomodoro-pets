@@ -14,11 +14,12 @@ import {
   CountdownEvent,
 } from 'ngx-countdown';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { PomodoroService } from '../pomodoro.service';
 @Component({
   selector: 'app-timerdisplay',
   standalone: true,
-  imports: [CountdownComponent, CommonModule, MatButtonModule],
+  imports: [CountdownComponent, CommonModule, MatButtonModule, MatIconModule],
   templateUrl: './timerdisplay.component.html',
   styleUrl: './timerdisplay.component.css',
 })

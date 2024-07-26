@@ -12,6 +12,8 @@
             (click)="this.pause(); this.startStatus = false">Pause</button>
         <button mat-flat-button class="btn start-btn" *ngIf="!this.startStatus"
             (click)="this.start(); this.startStatus = !this.startStatus">Start</button>
+        <button mat-icon-button aria-label="fast-forward button"
+            class="btn skip-btn"><mat-icon>skip_next</mat-icon></button>
         <!-- <button (click)="cd.begin()" class="btn btn-link btn-sm">start</button>
         <button (click)="cd.pause()" class="btn btn-link btn-sm">pause</button>
         <button (click)="cd.resume()" class="btn btn-link btn-sm">resume</button>
