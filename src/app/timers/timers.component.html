@@ -5,6 +5,7 @@
                         <app-pet-image petType="pomodoro" />
                         <app-timerdisplay name="pomodoro" [timerIndex]="this.selectedIndex"
                                 (remainingTime)="handleRemainingTime($event)" [duration]="this.pomodoro" />
+                        <p>Time to focus!</p>
                 </div>
         </mat-tab>
         <mat-tab label="Short Break">
@@ -12,6 +13,7 @@
                         <app-pet-image petType="short" />
                         <app-timerdisplay name="short" [timerIndex]="this.selectedIndex"
                                 (remainingTime)="handleRemainingTime($event)" [duration]="this.short" />
+                        <p>Time for a short break!</p>
                 </div>
         </mat-tab>
         <mat-tab label="Long Break">
@@ -19,7 +21,7 @@
                         <app-pet-image petType="long" />
                         <app-timerdisplay name="long" [timerIndex]="this.selectedIndex"
                                 (remainingTime)="handleRemainingTime($event)" [duration]="this.long" />
-
+                        <p>Time for a long break!</p>
                 </div>
 
         </mat-tab>
