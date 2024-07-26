@@ -1,16 +1,26 @@
 <mat-tab-group animationDuration="0ms" [selectedIndex]="selectedIndex"
         (selectedIndexChange)="informIndexChange($event)">
         <mat-tab label="Pomodoro">
-                <div style="display: flex; flex-direction: column; align-items: center;">
+                <div class="homeLayout">
                         <app-pet-image petType="pomodoro" />
                         <app-timerdisplay name="pomodoro" [timerIndex]="this.selectedIndex"
                                 (remainingTime)="handleRemainingTime($event)" [duration]="this.pomodoro" />
                 </div>
         </mat-tab>
-        <mat-tab label="Short Break"> <app-pet-image petType="short" /><app-timerdisplay name="short"
-                        [timerIndex]="this.selectedIndex" (remainingTime)="handleRemainingTime($event)"
-                        [duration]="this.short" /></mat-tab>
-        <mat-tab label="Long Break"> <app-pet-image petType="long" /><app-timerdisplay name="long"
-                        [timerIndex]="this.selectedIndex" (remainingTime)="handleRemainingTime($event)"
-                        [duration]="this.long" /></mat-tab>
+        <mat-tab label="Short Break">
+                <div class="homeLayout">
+                        <app-pet-image petType="short" />
+                        <app-timerdisplay name="short" [timerIndex]="this.selectedIndex"
+                                (remainingTime)="handleRemainingTime($event)" [duration]="this.short" />
+                </div>
+        </mat-tab>
+        <mat-tab label="Long Break">
+                <div class="homeLayout">
+                        <app-pet-image petType="long" />
+                        <app-timerdisplay name="long" [timerIndex]="this.selectedIndex"
+                                (remainingTime)="handleRemainingTime($event)" [duration]="this.long" />
+
+                </div>
+
+        </mat-tab>
 </mat-tab-group>
