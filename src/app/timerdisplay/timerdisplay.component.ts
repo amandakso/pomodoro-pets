@@ -63,6 +63,10 @@ export class TimerdisplayComponent {
     this.countdown.pause();
   }
 
+  skip() {
+    console.log('skip');
+  }
+
   pomodoroService = inject(PomodoroService);
 
   handleTimeChange(e: CountdownEvent) {
