@@ -13,11 +13,13 @@ import {
   CountdownConfig,
   CountdownEvent,
 } from 'ngx-countdown';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { PomodoroService } from '../pomodoro.service';
 @Component({
   selector: 'app-timerdisplay',
   standalone: true,
-  imports: [CountdownComponent, CommonModule],
+  imports: [CountdownComponent, CommonModule, MatButtonModule, MatIconModule],
   templateUrl: './timerdisplay.component.html',
   styleUrl: './timerdisplay.component.css',
 })
@@ -61,6 +63,12 @@ export class TimerdisplayComponent {
     this.countdown.pause();
   }
 
+  skip() {
+    console.log('skip');
+    this.remainingTime.emit({ num: 0, name: this.name });
+    this.finishTimer();
+  }
+
   pomodoroService = inject(PomodoroService);
 
   handleTimeChange(e: CountdownEvent) {
@@ -72,17 +80,21 @@ export class TimerdisplayComponent {
 
   onTimerFinished(e: CountdownEvent) {
     if (e.action == 'done') {
-      console.log('timer finished');
-      console.log('timer name: ', this.name, 'timer index', this.timerIndex);
-      let convertedTimerName = this.convertNameToIndex(this.name);
-      if (convertedTimerName == 0) {
-        this.pomodoroService.addPomodoroCount();
-      } else {
-        this.pomodoroService.addBreakCount();
-      }
-      setTimeout(() => this.countdown.restart());
-      this.startStatus = false;
+      this.finishTimer();
     }
+  }
+
+  finishTimer() {
+    console.log('timer finished');
+    console.log('timer name: ', this.name, 'timer index', this.timerIndex);
+    let convertedTimerName = this.convertNameToIndex(this.name);
+    if (convertedTimerName == 0) {
+      this.pomodoroService.addPomodoroCount();
+    } else {
+      this.pomodoroService.addBreakCount();
+    }
+    setTimeout(() => this.countdown.restart());
+    this.startStatus = false;
   }
 
   convertNameToIndex(name: string) {
