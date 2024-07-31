@@ -24,8 +24,5 @@ export class NavbarComponent {
   readonly dialog = inject(MatDialog);
   openDialog() {
     const dialogRef = this.dialog.open(SettingsComponent);
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-    });
   }
 }
