@@ -1,6 +1,11 @@
 <h1 mat-dialog-title>Settings</h1>
 <mat-dialog-content>
     <h3>Timers</h3>
+    <mat-form-field class="pomodoro">
+        <mat-label>Pomodoro</mat-label>
+        <input matInput type="number" min="1" max="1439" [(ngModel)]="this.pomodoro_timer"
+            (change)="pomodoroTimerChange($event)">
+    </mat-form-field>
     <mat-divider></mat-divider>
     <h3>Pet</h3>
     <mat-radio-group aria-label="Select a pet" [(ngModel)]="selected_pet" (change)="radioChange($event)">

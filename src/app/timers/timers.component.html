@@ -4,7 +4,8 @@
                 <div class="homeLayout">
                         <app-pet-image petType="pomodoro" />
                         <app-timerdisplay name="pomodoro" [timerIndex]="this.selectedIndex"
-                                (remainingTime)="handleRemainingTime($event)" [duration]="this.pomodoro" />
+                                (remainingTime)="handleRemainingTime($event)"
+                                [duration]="this.pomodoroService.getPomodoro" />
                         <p>Time to focus!</p>
                 </div>
         </mat-tab>

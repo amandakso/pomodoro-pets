@@ -29,12 +29,6 @@ export class TimerdisplayComponent {
   @ViewChild('cd', { static: false }) private countdown!: CountdownComponent;
 
   @Input() duration!: number;
-  config = {
-    leftTime: this.duration,
-    demand: true,
-    format: this.duration > 59 ? 'HH:mm:ss' : 'mm:ss',
-    notify: 0,
-  };
 
   @Input() name!: string;
 
@@ -43,11 +37,17 @@ export class TimerdisplayComponent {
   ngOnChanges(changes: SimpleChanges) {
     /**if name index doesn't match timer index restart timer */
     if (
+      changes['timerIndex'] &&
       !(
         changes['timerIndex'].currentValue == this.convertNameToIndex(this.name)
       )
     ) {
       setTimeout(() => this.countdown.restart());
+      this.startStatus = false;
+    }
+
+    // restart timer if timer duration is updated in settings
+    if (changes['duration']) {
       this.startStatus = false;
     }
   }
