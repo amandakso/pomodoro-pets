@@ -1,7 +1,14 @@
 <h1 mat-dialog-title>Settings</h1>
 <mat-dialog-content>
     <h3>Timers</h3>
+    <mat-divider></mat-divider>
     <h3>Pet</h3>
+    <mat-radio-group aria-label="Select a pet">
+        @for (pet of available_pets; track pet) {
+        <mat-radio-button [value]="pet">{{pet}}</mat-radio-button>
+        }
+    </mat-radio-group>
+    <mat-divider></mat-divider>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Close</button>

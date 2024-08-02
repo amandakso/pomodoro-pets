@@ -21,7 +21,9 @@ export class PomodoroService {
   long_interval = 4;
 
   /** pet  */
-  pet: 'dog' | 'kitty' = 'dog';
+  pet_options = ['dog', 'kitty'];
+  pet: string = 'dog';
+
   // pet:
   //   | 'dog'
   //   | 'cat'
@@ -77,6 +79,10 @@ export class PomodoroService {
   /** get pet */
   get getPet() {
     return this.pet;
+  }
+
+  get getPetOptions() {
+    return this.pet_options;
   }
 
   //Setters
