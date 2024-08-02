@@ -86,6 +86,22 @@ export class PomodoroService {
   }
 
   //Setters
+
+  /**set current timers */
+  set pomodoroTimer(val: number) {
+    this.pomodoro_timer = val;
+    return;
+  }
+  set shortTimer(val: number) {
+    this.short_timer = val;
+    return;
+  }
+
+  set longTimer(val: number) {
+    this.long_timer = val;
+    return;
+  }
+
   /** set current timer display in ms */
   set currentPomodoro(val: number) {
     this.current_pomodoro = val;
@@ -100,16 +116,17 @@ export class PomodoroService {
     return;
   }
 
+  /**set current pet */
+  set currentPet(val: string) {
+    this.pet = val;
+    return;
+  }
+
   // add to counts
   addPomodoroCount() {
     this.pomodoro_count += 1;
   }
   addBreakCount() {
     this.break_count += 1;
-  }
-  // set current pet
-  set currentPet(val: string) {
-    this.pet = val;
-    return;
   }
 }
