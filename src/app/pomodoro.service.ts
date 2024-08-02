@@ -21,7 +21,7 @@ export class PomodoroService {
   long_interval = 4;
 
   /** pet  */
-  pet_options = ['dog', 'kitty'];
+  pet_options: string[] = ['dog', 'kitty'];
   pet: string = 'dog';
 
   // pet:
@@ -106,5 +106,10 @@ export class PomodoroService {
   }
   addBreakCount() {
     this.break_count += 1;
+  }
+  // set current pet
+  set currentPet(val: string) {
+    this.pet = val;
+    return;
   }
 }
