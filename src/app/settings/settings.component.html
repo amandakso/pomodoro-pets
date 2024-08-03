@@ -3,7 +3,7 @@
     <h3>Timers</h3>
     <mat-form-field class="pomodoro">
         <mat-label>Pomodoro</mat-label>
-        <input matInput type="number" min="1" max="1439" [(ngModel)]="this.pomodoro_timer"
+        <input matInput name="pomodoro" type="number" min="1" max="1439" [(ngModel)]="this.pomodoro_timer"
             (change)="pomodoroTimerChange($event)">
     </mat-form-field>
     <mat-divider></mat-divider>

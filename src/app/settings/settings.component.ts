@@ -31,11 +31,16 @@ export class SettingsComponent {
 
   pomodoroTimerChange(e: any) {
     const val = e.target.value;
-    const num = parseInt(val);
+    const timer = e.target.name;
+    this.updateTimerChange(val, timer);
+  }
+
+  updateTimerChange(val: string, timer: string) {
     if (val.includes('.')) {
       // contains a decimal
       return;
     }
+    const num = parseInt(val);
     if (num > 0 && num < 1440) {
       // number in range (update timer)
       this.pomodoroService.pomodoroTimer = num;
