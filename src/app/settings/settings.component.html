@@ -6,6 +6,11 @@
         <input matInput name="pomodoro" type="number" min="1" max="1439" [(ngModel)]="this.pomodoro_timer"
             (change)="pomodoroTimerChange($event)">
     </mat-form-field>
+    <mat-form-field class="short">
+        <mat-label>Short Break</mat-label>
+        <input matInput name="short" type="number" min="1" max="1439" [(ngModel)]="this.short_timer"
+            (change)="shortTimerChange($event)">
+    </mat-form-field>
     <mat-divider></mat-divider>
     <h3>Pet</h3>
     <mat-radio-group aria-label="Select a pet" [(ngModel)]="selected_pet" (change)="radioChange($event)">

@@ -28,8 +28,14 @@ export class SettingsComponent {
   available_pets = this.pomodoroService.getPetOptions;
 
   pomodoro_timer = this.pomodoroService.getPomodoro;
+  short_timer = this.pomodoroService.getShort;
 
   pomodoroTimerChange(e: any) {
+    this.updateTimerChange(e.target.value, e.target.name);
+  }
+
+  shortTimerChange(e: any) {
+    console.log(e.target.value, e.target.name);
     this.updateTimerChange(e.target.value, e.target.name);
   }
 

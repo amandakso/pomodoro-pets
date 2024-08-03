@@ -13,7 +13,8 @@
                 <div class="homeLayout">
                         <app-pet-image petType="short" />
                         <app-timerdisplay name="short" [timerIndex]="this.selectedIndex"
-                                (remainingTime)="handleRemainingTime($event)" [duration]="this.short" />
+                                (remainingTime)="handleRemainingTime($event)"
+                                [duration]="this.pomodoroService.getShort" />
                         <p>Time for a short break!</p>
                 </div>
         </mat-tab>
