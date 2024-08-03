@@ -43,7 +43,13 @@ export class SettingsComponent {
     const num = parseInt(val);
     if (num > 0 && num < 1440) {
       // number in range (update timer)
-      this.pomodoroService.pomodoroTimer = num;
+      if (timer == 'pomodoro') {
+        this.pomodoroService.pomodoroTimer = num;
+      } else if (timer == 'short') {
+        this.pomodoroService.shortTimer = num;
+      } else if (timer == 'long') {
+        this.pomodoroService.longTimer = num;
+      }
     }
     return;
   }
