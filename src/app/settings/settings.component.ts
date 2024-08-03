@@ -29,13 +29,17 @@ export class SettingsComponent {
 
   pomodoro_timer = this.pomodoroService.getPomodoro;
   short_timer = this.pomodoroService.getShort;
+  long_timer = this.pomodoroService.getLong;
 
   pomodoroTimerChange(e: any) {
     this.updateTimerChange(e.target.value, e.target.name);
   }
 
   shortTimerChange(e: any) {
-    console.log(e.target.value, e.target.name);
+    this.updateTimerChange(e.target.value, e.target.name);
+  }
+
+  longTimerChange(e: any) {
     this.updateTimerChange(e.target.value, e.target.name);
   }
 

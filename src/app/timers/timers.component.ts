@@ -19,8 +19,6 @@ export class TimersComponent {
 
   timerType = this.pomodoroService.getTimerType;
 
-  long = this.pomodoroService.getLong;
-
   /** current timer values (converted from minutes to milliseconds) */
   current_pomodoro = this.pomodoroService.getCurrentPomodoro;
   current_short = this.pomodoroService.getCurrentShort;

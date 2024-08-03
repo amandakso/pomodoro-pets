@@ -22,7 +22,8 @@
                 <div class="homeLayout">
                         <app-pet-image petType="long" />
                         <app-timerdisplay name="long" [timerIndex]="this.selectedIndex"
-                                (remainingTime)="handleRemainingTime($event)" [duration]="this.long" />
+                                (remainingTime)="handleRemainingTime($event)"
+                                [duration]="this.pomodoroService.getLong" />
                         <p>Time for a long break!</p>
                 </div>
 

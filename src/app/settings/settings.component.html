@@ -11,6 +11,11 @@
         <input matInput name="short" type="number" min="1" max="1439" [(ngModel)]="this.short_timer"
             (change)="shortTimerChange($event)">
     </mat-form-field>
+    <mat-form-field class="long">
+        <mat-label>Long Break</mat-label>
+        <input matInput name="long" type="number" min="1" max="1439" [(ngModel)]="this.long_timer"
+            (change)="longTimerChange($event)">
+    </mat-form-field>
     <mat-divider></mat-divider>
     <h3>Pet</h3>
     <mat-radio-group aria-label="Select a pet" [(ngModel)]="selected_pet" (change)="radioChange($event)">
