@@ -30,9 +30,7 @@ export class SettingsComponent {
   pomodoro_timer = this.pomodoroService.getPomodoro;
 
   pomodoroTimerChange(e: any) {
-    const val = e.target.value;
-    const timer = e.target.name;
-    this.updateTimerChange(val, timer);
+    this.updateTimerChange(e.target.value, e.target.name);
   }
 
   updateTimerChange(val: string, timer: string) {
