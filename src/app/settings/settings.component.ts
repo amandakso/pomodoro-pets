@@ -30,6 +30,7 @@ export class SettingsComponent {
   pomodoro_timer = this.pomodoroService.getPomodoro;
   short_timer = this.pomodoroService.getShort;
   long_timer = this.pomodoroService.getLong;
+  long_interval = this.pomodoroService.getLongInterval;
 
   pomodoroTimerChange(e: any) {
     this.updateTimerChange(e.target.value, e.target.name);
@@ -58,6 +59,14 @@ export class SettingsComponent {
       } else if (timer == 'long') {
         this.pomodoroService.longTimer = num;
       }
+    }
+    return;
+  }
+
+  longIntervalChange(e: any) {
+    const num = parseInt(e.target.value);
+    if (num > 0 && num < 101) {
+      this.pomodoroService.longInterval = num;
     }
     return;
   }
