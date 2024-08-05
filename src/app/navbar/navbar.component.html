@@ -3,5 +3,7 @@
     <div class="spacer"></div>
     <a mat-button routerLink="/home">Home</a>
     <a mat-button routerLink="/about">About</a>
-    <a mat-button>Settings</a>
+    <button mat-button aria-label="Settings" (click)="openDialog()">
+        <mat-icon>settings</mat-icon>
+    </button>
 </mat-toolbar>

@@ -19,10 +19,6 @@ export class TimersComponent {
 
   timerType = this.pomodoroService.getTimerType;
 
-  pomodoro = this.pomodoroService.getPomodoro;
-  short = this.pomodoroService.getShort;
-  long = this.pomodoroService.getLong;
-
   /** current timer values (converted from minutes to milliseconds) */
   current_pomodoro = this.pomodoroService.getCurrentPomodoro;
   current_short = this.pomodoroService.getCurrentShort;
@@ -126,6 +122,6 @@ export class TimersComponent {
   }
 
   ngOnInit() {
-    this.updateTabTitle(`${this.pomodoro}:00`);
+    this.updateTabTitle(`${this.pomodoroService.getPomodoro}:00`);
   }
 }

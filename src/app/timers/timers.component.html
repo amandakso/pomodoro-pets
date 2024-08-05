@@ -4,7 +4,8 @@
                 <div class="homeLayout">
                         <app-pet-image petType="pomodoro" />
                         <app-timerdisplay name="pomodoro" [timerIndex]="this.selectedIndex"
-                                (remainingTime)="handleRemainingTime($event)" [duration]="this.pomodoro" />
+                                (remainingTime)="handleRemainingTime($event)"
+                                [duration]="this.pomodoroService.getPomodoro" />
                         <p>Time to focus!</p>
                 </div>
         </mat-tab>
@@ -12,7 +13,8 @@
                 <div class="homeLayout">
                         <app-pet-image petType="short" />
                         <app-timerdisplay name="short" [timerIndex]="this.selectedIndex"
-                                (remainingTime)="handleRemainingTime($event)" [duration]="this.short" />
+                                (remainingTime)="handleRemainingTime($event)"
+                                [duration]="this.pomodoroService.getShort" />
                         <p>Time for a short break!</p>
                 </div>
         </mat-tab>
@@ -20,7 +22,8 @@
                 <div class="homeLayout">
                         <app-pet-image petType="long" />
                         <app-timerdisplay name="long" [timerIndex]="this.selectedIndex"
-                                (remainingTime)="handleRemainingTime($event)" [duration]="this.long" />
+                                (remainingTime)="handleRemainingTime($event)"
+                                [duration]="this.pomodoroService.getLong" />
                         <p>Time for a long break!</p>
                 </div>
 

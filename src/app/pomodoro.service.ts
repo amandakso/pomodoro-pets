@@ -21,7 +21,9 @@ export class PomodoroService {
   long_interval = 4;
 
   /** pet  */
-  pet: 'dog' | 'kitty' = 'dog';
+  pet_options: string[] = ['dog', 'kitty'];
+  pet: string = 'dog';
+
   // pet:
   //   | 'dog'
   //   | 'cat'
@@ -79,7 +81,32 @@ export class PomodoroService {
     return this.pet;
   }
 
+  get getPetOptions() {
+    return this.pet_options;
+  }
+
   //Setters
+
+  /**set current timers */
+  set pomodoroTimer(val: number) {
+    this.pomodoro_timer = val;
+    return;
+  }
+  set shortTimer(val: number) {
+    this.short_timer = val;
+    return;
+  }
+
+  set longTimer(val: number) {
+    this.long_timer = val;
+    return;
+  }
+
+  set longInterval(val: number) {
+    this.long_interval = val;
+    return;
+  }
+
   /** set current timer display in ms */
   set currentPomodoro(val: number) {
     this.current_pomodoro = val;
@@ -91,6 +118,12 @@ export class PomodoroService {
   }
   set currentLong(val: number) {
     this.current_long = val;
+    return;
+  }
+
+  /**set current pet */
+  set currentPet(val: string) {
+    this.pet = val;
     return;
   }
 
