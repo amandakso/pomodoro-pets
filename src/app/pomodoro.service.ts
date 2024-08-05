@@ -102,6 +102,11 @@ export class PomodoroService {
     return;
   }
 
+  set longInterval(val: number) {
+    this.long_interval = val;
+    return;
+  }
+
   /** set current timer display in ms */
   set currentPomodoro(val: number) {
     this.current_pomodoro = val;
