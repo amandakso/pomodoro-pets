@@ -103,10 +103,9 @@ export class TimerdisplayComponent {
   }
 
   playSound(sound: string) {
-    // TBD validate sound file
     console.log('play sound');
     const sounds = this.pomodoroService.getSoundOptions;
-    let alarm_sound = 'message';
+    let alarm_sound = 'message'; // default sound
     if (sounds.includes(sound)) {
       alarm_sound = sound;
     }
