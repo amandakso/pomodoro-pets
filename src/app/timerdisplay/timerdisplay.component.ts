@@ -87,6 +87,10 @@ export class TimerdisplayComponent {
   finishTimer() {
     console.log('timer finished');
     console.log('timer name: ', this.name, 'timer index', this.timerIndex);
+
+    // play alarm sound
+    this.playSound('piano.mp3');
+
     let convertedTimerName = this.convertNameToIndex(this.name);
     if (convertedTimerName == 0) {
       this.pomodoroService.addPomodoroCount();
@@ -95,6 +99,14 @@ export class TimerdisplayComponent {
     }
     setTimeout(() => this.countdown.restart());
     this.startStatus = false;
+  }
+
+  playSound(filename: string) {
+    console.log('play sound');
+    let audio = new Audio();
+    audio.src = `assets/sounds/${filename}`;
+    audio.load();
+    audio.play();
   }
 
   convertNameToIndex(name: string) {

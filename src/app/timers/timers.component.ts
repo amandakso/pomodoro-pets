@@ -117,8 +117,6 @@ export class TimersComponent {
     } else {
       return new Date(num).toISOString().slice(14, 19);
     }
-
-    //TBD
   }
 
   ngOnInit() {
