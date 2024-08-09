@@ -27,6 +27,9 @@ export class SettingsComponent {
   selected_pet = this.pomodoroService.getPet;
   available_pets = this.pomodoroService.getPetOptions;
 
+  selected_sound = this.pomodoroService.getSound;
+  available_sounds = this.pomodoroService.getSoundOptions;
+
   pomodoro_timer = this.pomodoroService.getPomodoro;
   short_timer = this.pomodoroService.getShort;
   long_timer = this.pomodoroService.getLong;

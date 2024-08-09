@@ -30,6 +30,11 @@
     </mat-radio-group>
     <mat-divider></mat-divider>
     <h3>Alarm</h3>
+    <mat-radio-group aria-label="Select an alarm sound" [(ngModel)]="selected_sound">
+        @for (sound of available_sounds; track sound) {
+        <mat-radio-button [value]="sound">{{sound}}</mat-radio-button>
+        }
+    </mat-radio-group>
     <mat-divider></mat-divider>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
