@@ -82,6 +82,9 @@ export class SettingsComponent {
   }
 
   radioAlarmChange(e: MatRadioChange) {
-    console.log('TBD alarm');
+    console.log('change alarm');
+    if (this.available_sounds.includes(e.value)) {
+      console.log(e.value);
+    }
   }
 }

@@ -141,6 +141,12 @@ export class PomodoroService {
     return;
   }
 
+  /** set alarm sound */
+
+  set currentSound(val: string) {
+    this.sound = val;
+  }
+
   // add to counts
   addPomodoroCount() {
     this.pomodoro_count += 1;
