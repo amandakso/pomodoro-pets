@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class PomodoroService {
   timers: 'pomodoro' | 'short' | 'long' = 'pomodoro';
-  pomodoro_timer = 3;
-  short_timer = 1;
-  long_timer = 2;
+  pomodoro_timer = 25;
+  short_timer = 5;
+  long_timer = 15;
 
   /** current timers converted to milliseconds */
   current_pomodoro = this.pomodoro_timer * 60000;
