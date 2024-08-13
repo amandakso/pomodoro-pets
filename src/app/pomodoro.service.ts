@@ -21,7 +21,7 @@ export class PomodoroService {
   long_interval = 4;
 
   /** pet  */
-  pet_options: string[] = ['dog', 'kitty'];
+  pet_options: string[] = ['dog', 'cat'];
   pet: string = 'dog';
 
   // pet:
