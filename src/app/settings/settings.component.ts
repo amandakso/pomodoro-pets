@@ -85,6 +85,13 @@ export class SettingsComponent {
     console.log('change alarm');
     if (this.available_sounds.includes(e.value)) {
       this.pomodoroService.currentSound = e.value;
+
+      // play sound
+      const filename = e.value + '.mp3';
+      let audio = new Audio();
+      audio.src = `assets/sounds/${filename}`;
+      audio.load();
+      audio.play();
     }
     return;
   }
