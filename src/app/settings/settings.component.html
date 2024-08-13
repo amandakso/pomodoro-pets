@@ -23,14 +23,15 @@
     </mat-form-field>
     <mat-divider></mat-divider>
     <h3>Pet</h3>
-    <mat-radio-group aria-label="Select a pet" [(ngModel)]="selected_pet" (change)="radioChange($event)">
+    <mat-radio-group aria-label="Select a pet" [(ngModel)]="selected_pet" (change)="radioPetChange($event)">
         @for (pet of available_pets; track pet) {
         <mat-radio-button [value]="pet">{{pet}}</mat-radio-button>
         }
     </mat-radio-group>
     <mat-divider></mat-divider>
     <h3>Alarm</h3>
-    <mat-radio-group aria-label="Select an alarm sound" [(ngModel)]="selected_sound">
+    <mat-radio-group aria-label="Select an alarm sound" [(ngModel)]="selected_sound"
+        (change)="radioAlarmChange($event)">
         @for (sound of available_sounds; track sound) {
         <mat-radio-button [value]="sound">{{sound}}</mat-radio-button>
         }

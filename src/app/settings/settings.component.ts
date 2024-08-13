@@ -74,10 +74,14 @@ export class SettingsComponent {
     return;
   }
 
-  radioChange(e: MatRadioChange) {
+  radioPetChange(e: MatRadioChange) {
     if (this.available_pets.includes(e.value)) {
       this.pomodoroService.currentPet = e.value;
     }
     return;
+  }
+
+  radioAlarmChange(e: MatRadioChange) {
+    console.log('TBD alarm');
   }
 }
