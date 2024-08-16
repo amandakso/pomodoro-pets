@@ -28,18 +28,9 @@ export class PomodoroService {
     'penguin',
     'monkey',
     'groundhog',
+    'unicorn',
   ];
   pet: string = 'dog';
-
-  // pet:
-  //   | 'dog'
-  //   | 'cat'
-  //   | 'rabbit'
-  //   | 'penguin'
-  //   | 'unicorn'
-  //   | 'tiger'
-  //   | 'monkey'
-  //   | 'groundhog' = 'dog';
 
   /** pet image attributions */
   // <a href="https://www.flaticon.com/free-icons/cat" title="cat icons">Cat icons created by Freepik - Flaticon</a>
