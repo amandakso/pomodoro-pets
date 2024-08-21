@@ -27,6 +27,9 @@ export class SettingsComponent {
   selected_pet = this.pomodoroService.getPet;
   available_pets = this.pomodoroService.getPetOptions;
 
+  selected_sound = this.pomodoroService.getSound;
+  available_sounds = this.pomodoroService.getSoundOptions;
+
   pomodoro_timer = this.pomodoroService.getPomodoro;
   short_timer = this.pomodoroService.getShort;
   long_timer = this.pomodoroService.getLong;
@@ -71,9 +74,24 @@ export class SettingsComponent {
     return;
   }
 
-  radioChange(e: MatRadioChange) {
+  radioPetChange(e: MatRadioChange) {
     if (this.available_pets.includes(e.value)) {
       this.pomodoroService.currentPet = e.value;
+    }
+    return;
+  }
+
+  radioAlarmChange(e: MatRadioChange) {
+    console.log('change alarm');
+    if (this.available_sounds.includes(e.value)) {
+      this.pomodoroService.currentSound = e.value;
+
+      // play sound
+      const filename = e.value + '.mp3';
+      let audio = new Audio();
+      audio.src = `assets/sounds/${filename}`;
+      audio.load();
+      audio.play();
     }
     return;
   }

@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class PomodoroService {
   timers: 'pomodoro' | 'short' | 'long' = 'pomodoro';
-  pomodoro_timer = 3;
-  short_timer = 1;
-  long_timer = 2;
+  pomodoro_timer = 25;
+  short_timer = 5;
+  long_timer = 15;
 
   /** current timers converted to milliseconds */
   current_pomodoro = this.pomodoro_timer * 60000;
@@ -21,24 +21,22 @@ export class PomodoroService {
   long_interval = 4;
 
   /** pet  */
-  pet_options: string[] = ['dog', 'kitty'];
+  pet_options: string[] = [
+    'dog',
+    'cat',
+    'bunny',
+    'penguin',
+    'monkey',
+    'groundhog',
+    'unicorn',
+  ];
   pet: string = 'dog';
-
-  // pet:
-  //   | 'dog'
-  //   | 'cat'
-  //   | 'rabbit'
-  //   | 'penguin'
-  //   | 'unicorn'
-  //   | 'tiger'
-  //   | 'monkey'
-  //   | 'groundhog' = 'dog';
 
   /** pet image attributions */
   // <a href="https://www.flaticon.com/free-icons/cat" title="cat icons">Cat icons created by Freepik - Flaticon</a>
 
   /** Alarm Sounds */
-  sound_options: string[] = ['message', 'piano'];
+  sound_options: string[] = ['message', 'piano', 'clock', 'bird', 'cricket'];
   sound: string = 'message';
 
   // Sound Effect by <a href="https://pixabay.com/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=125764">UNIVERSFIELD</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=125764">Pixabay</a>
@@ -139,6 +137,12 @@ export class PomodoroService {
   set currentPet(val: string) {
     this.pet = val;
     return;
+  }
+
+  /** set alarm sound */
+
+  set currentSound(val: string) {
+    this.sound = val;
   }
 
   // add to counts
