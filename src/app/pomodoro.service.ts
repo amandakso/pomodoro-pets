@@ -101,6 +101,10 @@ export class PomodoroService {
     return this.sound;
   }
 
+  get getTasks() {
+    return this.tasks;
+  }
+
   //Setters
 
   /**set current timers */
