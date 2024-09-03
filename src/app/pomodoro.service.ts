@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { Task } from './task';
 @Injectable({
   providedIn: 'root',
 })
@@ -43,9 +43,7 @@ export class PomodoroService {
 
   /** Tasks */
 
-  tasks: { description: string; done: boolean }[] = [
-    { description: 'test', done: false },
-  ];
+  tasks: Task[] = [{ description: 'test', done: false }];
 
   constructor() {}
   // Getters
