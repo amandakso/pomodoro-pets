@@ -43,7 +43,9 @@ export class PomodoroService {
 
   /** Tasks */
 
-  tasks: { description: string; done: boolean }[] = [];
+  tasks: { description: string; done: boolean }[] = [
+    { description: 'test', done: false },
+  ];
 
   constructor() {}
   // Getters
