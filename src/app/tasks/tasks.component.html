@@ -1,6 +1,6 @@
 <h1>Tasks</h1>
 <ul>
     <li *ngFor="let i of pomodoroService.getTasks">
-        <p>{{i.description}}</p>
+        <app-task></app-task>
     </li>
 </ul>
