@@ -170,6 +170,15 @@ export class PomodoroService {
   }
 
   addTask(description: string) {
-    console.log('tbd');
+    // new task must have a description
+    if (description.length == 0) {
+      return;
+    }
+    const newTask: Task = {
+      date: new Date(),
+      description: description,
+      done: false,
+    };
+    this.tasks.push(newTask);
   }
 }
