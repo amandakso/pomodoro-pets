@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Task } from '../task';
+import { PomodoroService } from '../pomodoro.service';
 
 @Component({
   selector: 'app-task',
@@ -10,4 +11,10 @@ import { Task } from '../task';
 })
 export class TaskComponent {
   @Input() task!: Task;
+
+  pomodoroService = inject(PomodoroService);
+
+  completeTask(id: Date) {
+    this.pomodoroService.changeDoneStatus(id);
+  }
 }

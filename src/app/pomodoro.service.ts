@@ -160,4 +160,12 @@ export class PomodoroService {
   addBreakCount() {
     this.break_count += 1;
   }
+
+  /** task functions */
+
+  //update task done status
+  changeDoneStatus(id: Date) {
+    const objIndex = this.tasks.findIndex((obj) => obj.date == id);
+    this.tasks[objIndex].done = !this.tasks[objIndex].done;
+  }
 }
