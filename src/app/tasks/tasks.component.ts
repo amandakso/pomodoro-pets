@@ -15,7 +15,6 @@ export class TasksComponent {
   pomodoroService = inject(PomodoroService);
 
   addTask(description: string) {
-    console.log('TODO');
-    console.log(description);
+    this.pomodoroService.addTask(description);
   }
 }

@@ -168,4 +168,8 @@ export class PomodoroService {
     const objIndex = this.tasks.findIndex((obj) => obj.date == id);
     this.tasks[objIndex].done = !this.tasks[objIndex].done;
   }
+
+  addTask(description: string) {
+    console.log('tbd');
+  }
 }
