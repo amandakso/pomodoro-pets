@@ -195,4 +195,8 @@ export class PomodoroService {
 
     this.tasks[objIndex].description = description;
   }
+
+  deleteTask(id: Date) {
+    console.log('delete');
+  }
 }

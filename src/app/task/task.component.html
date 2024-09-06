@@ -4,6 +4,7 @@
         <label [for]="task.date">{{task.description}}</label>
 
         <button (click)="editable = !editable">Edit</button>
+        <button (click)="this.deleteTask(task.date)">Delete</button>
     </div>
     <!-- This section shows only when task is editable-->
     <div *ngIf="editable">
