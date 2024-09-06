@@ -181,4 +181,18 @@ export class PomodoroService {
     };
     this.tasks.push(newTask);
   }
+
+  updateTask(id: Date, description: string) {
+    // updated task must have a description
+    if (description.length == 0) {
+      return;
+    }
+    const objIndex = this.tasks.findIndex((obj) => obj.date == id);
+    // if task id not found, return
+    if (objIndex == -1 || undefined) {
+      return;
+    }
+
+    this.tasks[objIndex].description = description;
+  }
 }

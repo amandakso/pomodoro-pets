@@ -21,7 +21,7 @@ export class TaskComponent {
   }
 
   updateTask(id: Date, description: string) {
-    console.log('id', id);
-    console.log('description', description);
+    this.pomodoroService.updateTask(id, description);
+    this.editable = false;
   }
 }
