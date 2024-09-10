@@ -196,6 +196,13 @@ export class PomodoroService {
   }
 
   deleteTask(id: Date) {
-    console.log('delete');
+    const objIndex = this.tasks.findIndex((obj) => obj.date == id);
+
+    // if task id is found, delete task
+    if (objIndex !== -1) {
+      this.tasks.splice(objIndex, 1);
+    }
+
+    return;
   }
 }
