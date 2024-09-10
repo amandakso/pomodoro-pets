@@ -25,7 +25,6 @@ export class TaskComponent {
     this.editable = false;
   }
   deleteTask(id: Date) {
-    console.log('TBD');
     this.pomodoroService.deleteTask(id);
   }
 }

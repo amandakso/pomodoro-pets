@@ -188,12 +188,11 @@ export class PomodoroService {
       return;
     }
     const objIndex = this.tasks.findIndex((obj) => obj.date == id);
-    // if task id not found, return
-    if (objIndex == -1 || undefined) {
-      return;
+    // if task id is found, replace description
+    if (objIndex !== -1) {
+      this.tasks[objIndex].description = description;
     }
-
-    this.tasks[objIndex].description = description;
+    return;
   }
 
   deleteTask(id: Date) {
