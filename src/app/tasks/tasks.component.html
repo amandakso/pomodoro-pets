@@ -1,7 +1,11 @@
 <h1>Tasks</h1>
 <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Task Menu"><mat-icon>more_vert</mat-icon></button>
-
-<mat-menu #menu="matMenu"></mat-menu>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <mat-icon>done_all</mat-icon>
+        <span>Mark All Tasks Complete</span>
+    </button>
+</mat-menu>
 <input [name]="newTask" #newTask placeholder="add a task" (keyup.enter)="addTask(newTask.value); newTask.value= ''" />
 <button (click)="addTask(newTask.value)"><mat-icon aria-hidden="true" aria-label="add" fontIcon="add">add</mat-icon> Add
     Task</button>
