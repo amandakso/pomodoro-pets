@@ -9,6 +9,10 @@
         <mat-icon>delete</mat-icon>
         <span>Clear Completed Tasks</span>
     </button>
+    <button mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <span>Clear All Tasks</span>
+    </button>
 </mat-menu>
 <input [name]="newTask" #newTask placeholder="add a task" (keyup.enter)="addTask(newTask.value); newTask.value= ''" />
 <button (click)="addTask(newTask.value)"><mat-icon aria-hidden="true" aria-label="add" fontIcon="add">add</mat-icon> Add
