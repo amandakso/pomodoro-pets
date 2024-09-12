@@ -205,4 +205,8 @@ export class PomodoroService {
 
     return;
   }
+  // Task Menu Options
+  completeAllTasks() {
+    this.tasks.forEach((task) => (task.done = true));
+  }
 }

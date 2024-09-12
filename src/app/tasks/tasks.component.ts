@@ -26,4 +26,8 @@ export class TasksComponent {
   addTask(description: string) {
     this.pomodoroService.addTask(description);
   }
+
+  completeAllTasks() {
+    this.pomodoroService.completeAllTasks();
+  }
 }
