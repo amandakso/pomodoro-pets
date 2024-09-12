@@ -34,4 +34,8 @@ export class TasksComponent {
   deleteCompletedTasks() {
     this.pomodoroService.deleteCompletedTasks();
   }
+
+  deleteAllTasks() {
+    this.pomodoroService.deleteAllTasks();
+  }
 }

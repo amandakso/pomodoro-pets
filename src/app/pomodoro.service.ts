@@ -213,4 +213,8 @@ export class PomodoroService {
   deleteCompletedTasks() {
     this.tasks = this.tasks.filter((task) => task.done == false);
   }
+
+  deleteAllTasks() {
+    this.tasks = [];
+  }
 }
