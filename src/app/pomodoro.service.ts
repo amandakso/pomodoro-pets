@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { Task } from './task';
 @Injectable({
   providedIn: 'root',
 })
@@ -40,6 +40,10 @@ export class PomodoroService {
   sound: string = 'message';
 
   // Sound Effect by <a href="https://pixabay.com/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=125764">UNIVERSFIELD</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=125764">Pixabay</a>
+
+  /** Tasks */
+
+  tasks: Task[] = [{ date: new Date(), description: 'test', done: false }];
 
   constructor() {}
   // Getters
@@ -97,6 +101,10 @@ export class PomodoroService {
     return this.sound;
   }
 
+  get getTasks() {
+    return this.tasks;
+  }
+
   //Setters
 
   /**set current timers */
@@ -151,5 +159,62 @@ export class PomodoroService {
   }
   addBreakCount() {
     this.break_count += 1;
+  }
+
+  /** task functions */
+
+  //update task done status
+  changeDoneStatus(id: Date) {
+    const objIndex = this.tasks.findIndex((obj) => obj.date == id);
+    this.tasks[objIndex].done = !this.tasks[objIndex].done;
+  }
+
+  addTask(description: string) {
+    // new task must have a description
+    if (description.length == 0) {
+      return;
+    }
+    const newTask: Task = {
+      date: new Date(),
+      description: description,
+      done: false,
+    };
+    this.tasks.push(newTask);
+  }
+
+  updateTask(id: Date, description: string) {
+    // updated task must have a description
+    if (description.length == 0) {
+      return;
+    }
+    const objIndex = this.tasks.findIndex((obj) => obj.date == id);
+    // if task id is found, replace description
+    if (objIndex !== -1) {
+      this.tasks[objIndex].description = description;
+    }
+    return;
+  }
+
+  deleteTask(id: Date) {
+    const objIndex = this.tasks.findIndex((obj) => obj.date == id);
+
+    // if task id is found, delete task
+    if (objIndex !== -1) {
+      this.tasks.splice(objIndex, 1);
+    }
+
+    return;
+  }
+  // Task Menu Options
+  completeAllTasks() {
+    this.tasks.forEach((task) => (task.done = true));
+  }
+
+  deleteCompletedTasks() {
+    this.tasks = this.tasks.filter((task) => task.done == false);
+  }
+
+  deleteAllTasks() {
+    this.tasks = [];
   }
 }
