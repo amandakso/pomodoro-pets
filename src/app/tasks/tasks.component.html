@@ -5,7 +5,7 @@
         <mat-icon>done_all</mat-icon>
         <span>Mark All Tasks Complete</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="this.deleteCompletedTasks()">
         <mat-icon>delete</mat-icon>
         <span>Clear Completed Tasks</span>
     </button>
