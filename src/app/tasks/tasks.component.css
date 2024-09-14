@@ -3,3 +3,9 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.tasks-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
