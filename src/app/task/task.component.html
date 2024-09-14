@@ -3,16 +3,16 @@
         <input [id]="task.date" type="checkbox" (change)="this.completeTask(task.date)" [checked]="task.done" />
         <label [for]="task.date">{{task.description}}</label>
 
-        <button (click)="editable = !editable">Edit</button>
-        <button (click)="this.deleteTask(task.date)">Delete</button>
+        <button mat-flat-button (click)="editable = !editable">Edit</button>
+        <button mat-flat-button (click)="this.deleteTask(task.date)">Delete</button>
     </div>
     <!-- This section shows only when task is editable-->
     <div *ngIf="editable">
         <input placeholder="edit task" [value]="task.description" #editedTask
             (keyup.enter)="updateTask(task.date, editedTask.value)" />
         <div>
-            <button (click)="editable = !editable">Cancel</button>
-            <button (click)="updateTask(task.date, editedTask.value)">Save</button>
+            <button mat-flat-button (click)="editable = !editable">Cancel</button>
+            <button mat-flat-button (click)="updateTask(task.date, editedTask.value)">Save</button>
         </div>
     </div>
 

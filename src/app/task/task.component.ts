@@ -2,11 +2,12 @@ import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Task } from '../task';
 import { PomodoroService } from '../pomodoro.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
 })

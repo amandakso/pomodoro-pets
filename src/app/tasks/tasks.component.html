@@ -24,7 +24,7 @@
 
             <input [name]="newTask" #newTask placeholder="add a task"
                 (keyup.enter)="addTask(newTask.value); newTask.value= ''" />
-            <button (click)="addTask(newTask.value)"><mat-icon aria-hidden="true" aria-label="add"
+            <button mat-flat-button (click)="addTask(newTask.value)"><mat-icon aria-hidden="true" aria-label="add"
                     fontIcon="add">add</mat-icon>
                 Add
                 Task</button>
