@@ -29,7 +29,7 @@
                 Add
                 Task</button>
         </span>
-        <ul>
+        <ul class="tasks-list">
             <li *ngFor="let i of pomodoroService.getTasks">
                 <app-task [task]="i"></app-task>
             </li>

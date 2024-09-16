@@ -17,3 +17,7 @@
   box-sizing: border-box;
   font-size: 1rem;
 }
+
+.tasks-list {
+  list-style-type: none;
+}
