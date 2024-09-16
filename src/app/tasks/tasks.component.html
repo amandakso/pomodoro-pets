@@ -20,15 +20,15 @@
         </mat-menu>
     </span>
     <div class="tasks-content">
-        <div>
+        <span>
 
-            <input [name]="newTask" #newTask placeholder="add a task"
+            <input id=newTask [name]="newTask" #newTask placeholder="add a task"
                 (keyup.enter)="addTask(newTask.value); newTask.value= ''" />
             <button mat-flat-button (click)="addTask(newTask.value)"><mat-icon aria-hidden="true" aria-label="add"
                     fontIcon="add">add</mat-icon>
                 Add
                 Task</button>
-        </div>
+        </span>
         <ul>
             <li *ngFor="let i of pomodoroService.getTasks">
                 <app-task [task]="i"></app-task>
