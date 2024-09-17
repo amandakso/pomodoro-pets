@@ -1,22 +1,24 @@
 <div>
     <div *ngIf="!editable">
-        <div class="checkbox-wrapper-15">
-            <input class="inp-cbx" [id]="task.date" type="checkbox" style="display: none;"
-                (change)="this.completeTask(task.date)" [checked]="task.done" />
-            <label class="cbx" [for]="task.date">
-                <span>
-                    <svg width="12px" height="9px" viewbox="0 0 12 9">
-                        <polyline points="1 5 4 8 11 1"></polyline>
-                    </svg>
-                </span>
-                <span>{{task.description}}</span>
-            </label>
-        </div>
-        <!-- <input [id]="task.date" type="checkbox" (change)="this.completeTask(task.date)" [checked]="task.done" />
-        <label [for]="task.date">{{task.description}}</label> -->
+        <span class="task-item-row">
+            <div class="checkbox-wrapper-15">
+                <input class="inp-cbx" [id]="task.date" type="checkbox" style="display: none;"
+                    (change)="this.completeTask(task.date)" [checked]="task.done" />
+                <label class="cbx" [for]="task.date">
+                    <span>
+                        <svg width="12px" height="9px" viewbox="0 0 12 9">
+                            <polyline points="1 5 4 8 11 1"></polyline>
+                        </svg>
+                    </span>
+                    <span>{{task.description}}</span>
+                </label>
+            </div>
+            <!-- <input [id]="task.date" type="checkbox" (change)="this.completeTask(task.date)" [checked]="task.done" />
+            <label [for]="task.date">{{task.description}}</label> -->
 
-        <button mat-flat-button (click)="editable = !editable">Edit</button>
-        <button mat-flat-button (click)="this.deleteTask(task.date)">Delete</button>
+            <button mat-flat-button (click)="editable = !editable">Edit</button>
+            <button mat-flat-button (click)="this.deleteTask(task.date)">Delete</button>
+        </span>
     </div>
     <!-- This section shows only when task is editable-->
     <div *ngIf="editable">

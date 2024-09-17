@@ -92,3 +92,8 @@
     transform: scale(1.2);
   }
 }
+
+.task-item-row {
+  display: flex;
+  align-items: center;
+}
