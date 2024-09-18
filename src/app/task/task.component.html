@@ -15,9 +15,11 @@
             </div>
             <!-- <input [id]="task.date" type="checkbox" (change)="this.completeTask(task.date)" [checked]="task.done" />
             <label [for]="task.date">{{task.description}}</label> -->
+            <div class="task-btns">
 
-            <button mat-flat-button (click)="editable = !editable">Edit</button>
-            <button mat-flat-button (click)="this.deleteTask(task.date)">Delete</button>
+                <button mat-flat-button (click)="editable = !editable">Edit</button>
+                <button mat-flat-button (click)="this.deleteTask(task.date)">Delete</button>
+            </div>
         </span>
     </div>
     <!-- This section shows only when task is editable-->
