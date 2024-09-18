@@ -17,8 +17,8 @@
             <label [for]="task.date">{{task.description}}</label> -->
             <div class="task-btns">
 
-                <button mat-flat-button (click)="editable = !editable">Edit</button>
-                <button mat-flat-button (click)="this.deleteTask(task.date)">Delete</button>
+                <button class="task-btn" mat-flat-button (click)="editable = !editable">Edit</button>
+                <button class="task-btn" mat-flat-button (click)="this.deleteTask(task.date)">Delete</button>
             </div>
         </span>
     </div>
