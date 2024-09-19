@@ -97,6 +97,7 @@
   display: flex;
   align-items: center;
   gap: 5rem;
+  padding-bottom: 0.5rem;
 }
 
 .task-btns {
