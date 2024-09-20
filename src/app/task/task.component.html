@@ -24,12 +24,15 @@
     </div>
     <!-- This section shows only when task is editable-->
     <div *ngIf="editable">
-        <input placeholder="edit task" [value]="task.description" #editedTask
-            (keyup.enter)="updateTask(task.date, editedTask.value)" />
-        <div>
-            <button mat-flat-button (click)="editable = !editable">Cancel</button>
-            <button mat-flat-button (click)="updateTask(task.date, editedTask.value)">Save</button>
-        </div>
+        <span class="task-item-row">
+
+            <input class="editedTask" placeholder="edit task" [value]="task.description" #editedTask
+                (keyup.enter)="updateTask(task.date, editedTask.value)" />
+            <div class="task-btns">
+                <button mat-flat-button (click)="updateTask(task.date, editedTask.value)">Save</button>
+                <button mat-flat-button (click)="editable = !editable">Cancel</button>
+            </div>
+        </span>
     </div>
 
 </div>
