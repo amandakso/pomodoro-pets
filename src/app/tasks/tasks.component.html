@@ -1,24 +1,39 @@
-<h1>Tasks</h1>
-<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Task Menu"><mat-icon>more_vert</mat-icon></button>
-<mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="this.completeAllTasks()">
-        <mat-icon>done_all</mat-icon>
-        <span>Mark All Tasks Complete</span>
-    </button>
-    <button mat-menu-item (click)="this.deleteCompletedTasks()">
-        <mat-icon>delete</mat-icon>
-        <span>Clear Completed Tasks</span>
-    </button>
-    <button mat-menu-item (click)="this.deleteAllTasks()">
-        <mat-icon>delete</mat-icon>
-        <span>Clear All Tasks</span>
-    </button>
-</mat-menu>
-<input [name]="newTask" #newTask placeholder="add a task" (keyup.enter)="addTask(newTask.value); newTask.value= ''" />
-<button (click)="addTask(newTask.value)"><mat-icon aria-hidden="true" aria-label="add" fontIcon="add">add</mat-icon> Add
-    Task</button>
-<ul>
-    <li *ngFor="let i of pomodoroService.getTasks">
-        <app-task [task]="i"></app-task>
-    </li>
-</ul>
+<div>
+
+    <span class="tasks-title">
+        <h1>Tasks</h1>
+        <button mat-icon-button [matMenuTriggerFor]="menu"
+            aria-label="Task Menu"><mat-icon>more_vert</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="this.completeAllTasks()">
+                <mat-icon>done_all</mat-icon>
+                <span>Mark All Tasks Complete</span>
+            </button>
+            <button mat-menu-item (click)="this.deleteCompletedTasks()">
+                <mat-icon>delete</mat-icon>
+                <span>Clear Completed Tasks</span>
+            </button>
+            <button mat-menu-item (click)="this.deleteAllTasks()">
+                <mat-icon>delete</mat-icon>
+                <span>Clear All Tasks</span>
+            </button>
+        </mat-menu>
+    </span>
+
+    <div class="tasks-content">
+        <span>
+
+            <input id=newTask [name]="newTask" #newTask placeholder="add a task"
+                (keyup.enter)="addTask(newTask.value); newTask.value= ''" />
+            <button mat-flat-button (click)="addTask(newTask.value)"><mat-icon aria-hidden="true" aria-label="add"
+                    fontIcon="add">add</mat-icon>
+                Add
+                Task</button>
+        </span>
+        <ul class="tasks-list">
+            <li *ngFor="let i of pomodoroService.getTasks">
+                <app-task [task]="i"></app-task>
+            </li>
+        </ul>
+    </div>
+</div>

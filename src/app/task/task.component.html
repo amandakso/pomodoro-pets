@@ -1,19 +1,38 @@
 <div>
     <div *ngIf="!editable">
-        <input [id]="task.date" type="checkbox" (change)="this.completeTask(task.date)" [checked]="task.done" />
-        <label [for]="task.date">{{task.description}}</label>
+        <span class="task-item-row">
+            <div class="checkbox-wrapper-15">
+                <input class="inp-cbx" [id]="task.date" type="checkbox" style="display: none;"
+                    (change)="this.completeTask(task.date)" [checked]="task.done" />
+                <label class="cbx" [for]="task.date">
+                    <span>
+                        <svg width="12px" height="9px" viewbox="0 0 12 9">
+                            <polyline points="1 5 4 8 11 1"></polyline>
+                        </svg>
+                    </span>
+                    <span>{{task.description}}</span>
+                </label>
+            </div>
+            <!-- <input [id]="task.date" type="checkbox" (change)="this.completeTask(task.date)" [checked]="task.done" />
+            <label [for]="task.date">{{task.description}}</label> -->
+            <div class="task-btns">
 
-        <button (click)="editable = !editable">Edit</button>
-        <button (click)="this.deleteTask(task.date)">Delete</button>
+                <button class="task-btn" mat-flat-button (click)="editable = !editable">Edit</button>
+                <button class="task-btn" mat-flat-button (click)="this.deleteTask(task.date)">Delete</button>
+            </div>
+        </span>
     </div>
     <!-- This section shows only when task is editable-->
     <div *ngIf="editable">
-        <input placeholder="edit task" [value]="task.description" #editedTask
-            (keyup.enter)="updateTask(task.date, editedTask.value)" />
-        <div>
-            <button (click)="editable = !editable">Cancel</button>
-            <button (click)="updateTask(task.date, editedTask.value)">Save</button>
-        </div>
+        <span class="task-item-row">
+
+            <input class="editedTask" placeholder="edit task" [value]="task.description" #editedTask
+                (keyup.enter)="updateTask(task.date, editedTask.value)" />
+            <div class="task-btns">
+                <button mat-flat-button (click)="updateTask(task.date, editedTask.value)">Save</button>
+                <button mat-flat-button (click)="editable = !editable">Cancel</button>
+            </div>
+        </span>
     </div>
 
 </div>
