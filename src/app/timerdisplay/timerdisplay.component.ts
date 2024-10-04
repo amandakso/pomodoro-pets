@@ -64,7 +64,6 @@ export class TimerdisplayComponent {
   }
 
   skip() {
-    console.log('skip');
     this.remainingTime.emit({ num: 0, name: this.name });
     this.finishTimer();
   }
@@ -72,10 +71,7 @@ export class TimerdisplayComponent {
   pomodoroService = inject(PomodoroService);
 
   handleTimeChange(e: CountdownEvent) {
-    console.log('notify');
-    console.log(e.left); // returns in milliseconds
-
-    this.remainingTime.emit({ num: e.left, name: this.name }); // returns timer name and remaining time left
+    this.remainingTime.emit({ num: e.left, name: this.name }); // returns timer name and remaining time left in milliseconds
   }
 
   onTimerFinished(e: CountdownEvent) {
@@ -85,9 +81,6 @@ export class TimerdisplayComponent {
   }
 
   finishTimer() {
-    console.log('timer finished');
-    console.log('timer name: ', this.name, 'timer index', this.timerIndex);
-
     // play alarm sound
     const sound = this.pomodoroService.getSound;
     this.playSound(sound);
@@ -103,7 +96,6 @@ export class TimerdisplayComponent {
   }
 
   playSound(sound: string) {
-    console.log('play sound');
     const sounds = this.pomodoroService.getSoundOptions;
     let alarm_sound = 'message'; // default sound
     if (sounds.includes(sound)) {
