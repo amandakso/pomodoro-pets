@@ -22,6 +22,8 @@ import { SettingsComponent } from '../settings/settings.component';
 })
 export class NavbarComponent {
   readonly dialog = inject(MatDialog);
+
+  // open settings dialog
   openDialog() {
     const dialogRef = this.dialog.open(SettingsComponent);
   }

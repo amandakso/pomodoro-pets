@@ -24,8 +24,6 @@ export class TimersComponent {
   current_short = this.pomodoroService.getCurrentShort;
   current_long = this.pomodoroService.getCurrentLong;
 
-  /** getters */
-
   /** setters */
   setSelectedIndex(val: number) {
     this.selectedIndex = val;
