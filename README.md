@@ -1,6 +1,32 @@
 # PomodoroPets
 
+## Overview
+
+Pomodoro Pets is a focus timer web application that combines the Pomodoro Technique with virtual pet companions.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
+
+[Live Demo](https://pomodoro-pets.vercel.app/)
+
+## Features
+
+- Customizable Pomodoro timer (focus, short break, and long break intervals)
+- Multiple pet and timer alarm sounds to choose from
+- Add and keep track of tasks to be completed
+- Responsive design
+
+## Technologies
+
+- Angular
+- Angular Material
+- Typescript
+- Deployed with Vercel
+
+## Acknowledgements
+
+- Pet icons provided by Flaticon
+- Sounds sourced from Pixabay
+- Inspired by the Pomodoro Technique developed by Francesco Cirillo
 
 ## Development server
 
